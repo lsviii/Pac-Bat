@@ -1,0 +1,35 @@
+
+.muro {
+  width: 50px;
+  height: 50px;
+  background-image: url('muro.png');
+  display: inline-block;
+}
+.batarang {
+  width: 50px;
+  height: 50px;
+  background-image: url('batarang.png');
+  display: inline-block;
+}
+.fundo {
+  width: 50px;
+  height: 50px;
+  background-image: url('fundo.png');
+  display: inline-block;
+}
+.joker {
+  width: 50px;
+  height: 50px;
+  background-image: url('joker.png');
+  display: inline-block;
+}
+.batman {
+  width: 50px;
+  height: 50px;
+  background-image: url('batman.png');
+  display: inline-block;
+}
+
+div {
+  line-height: 0px;
+}

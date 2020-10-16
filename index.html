@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BATMAN</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<style>
+
+	</style>
+</head>
+<body>
+
+	<div id='mundo'>
+
+	</div>
+
+
+<script>
+	//MAPA: 1 = Muro, 2 = batarang, 3 = fundo, 4 = joker, 5 = batman
+
+	batman = {
+		x: 6,
+		y: 4
+	}
+
+	map = [
+		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+		[1,2,2,2,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,1],
+		[1,2,1,1,1,2,1,2,1,1,1,2,2,1,2,1,2,1,2,2,2,2,1],
+		[1,2,1,2,2,2,2,2,2,2,1,2,1,2,1,1,1,1,1,1,2,2,1],
+		[1,2,2,2,1,1,5,1,1,4,2,2,1,2,1,2,2,2,2,2,1,2,1],
+		[1,2,1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,1,2,2,2,1],
+		[1,2,1,1,2,2,1,2,2,1,1,2,1,2,1,2,2,2,1,1,1,2,1],
+		[1,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,1],
+		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+	]
+
+	var batmundo = document.getElementById('mundo');
+
+	function gotamcity(){
+		batmundo.innerHTML = '';
+		for(var y = 0; y < map.length ; y = y + 1) {
+			for(var x = 0; x < map[y].length ; x = x + 1) {
+				if (map[y][x] === 1) {
+				batmundo.innerHTML += "<div class='muro'></div>";
+				}
+				else if (map[y][x] === 2) {
+					batmundo.innerHTML += "<div class='batarang'></div>";
+				}
+				else if (map[y][x] === 3) {
+					batmundo.innerHTML += "<div class='fundo'></div>";
+				}
+				else if (map[y][x] === 4) {
+					batmundo.innerHTML += "<div class='joker'></div>";
+				}
+				else if (map[y][x] === 5) {
+					batmundo.innerHTML += "<div class='batman'></div>";
+				}
+			}
+			batmundo.innerHTML += "<br>";
+		}
+	}
+
+	gotamcity();
+
+	document.onkeydown = function(event){
+
+		if (event.keyCode === 37){ // mover pra esquerda
+			if ( map[batman.y][batman.x-1] !== 1){
+				map[batman.y][batman.x] = 3;
+				batman.x = batman.x - 1;
+				map[batman.y][batman.x] = 5;
+				gotamcity();
+			}
+		}
+		else if (event.keyCode === 38){ // mover pra cima
+			if ( map[batman.y-1][batman.x] !== 1){
+				map[batman.y][batman.x] = 3;
+				batman.y = batman.y - 1;
+				map[batman.y][batman.x] = 5;
+				gotamcity();
+			}
+		}
+		else if (event.keyCode === 39){ // mover pra direita
+			if ( map[batman.y][batman.x+1] !== 1){
+				map[batman.y][batman.x] = 3;
+				batman.x = batman.x + 1;
+				map[batman.y][batman.x] = 5;
+				gotamcity();
+			}
+		}
+		else if (event.keyCode === 40){ // mover pra baixo
+			if ( map[batman.y+1][batman.x] !== 1){
+				map[batman.y][batman.x] = 3;
+				batman.y = batman.y + 1;
+				map[batman.y][batman.x] = 5;
+				gotamcity();
+			}
+		}
+
+		console.log(map)
+	}
+
+</script>
+</body>
+</html>
